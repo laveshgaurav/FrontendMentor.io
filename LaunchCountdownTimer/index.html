@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel='stylesheet' href="./main.css">
+  <title>Frontend Mentor | Launch countdown timer</title>
+
+  <div class="container">
+    <div class="sky"></div>
+    <div class="mountain"></div>
+    <div class="heading">
+      WE'RE LAUNCHING SOON
+    </div>
+    <div class="timer">
+      <div class="box">
+        <div id="day" class="day"></div>
+        <p>DAYS</p>
+      </div>
+      <div class="box">
+        <div id="hour" class="day"></div>
+        <p>HOURS</p>
+      </div>
+      <div class="box">
+        <div id="min" class="day"></div>
+        <p>MINUTES</p>
+      </div>
+      <div class="box">
+        <div id="sec" class="day"></div>
+        <p>SECONDS</p>
+      </div>
+    </div>
+
+    <div class="links">
+      <div class="img-box">
+        <img src="./images/facebook.svg" alt="instagram">
+      </div>
+      <div class="img-box">
+        <img src="./images/pinterest.svg" alt="pinterest">
+      </div>
+      <div class="img-box">
+        <img src="./images/instagram.svg" alt="instagram">
+      </div>
+    </div>
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="#">Lavesh Gaurav</a>.
+    </div>
+  </div>
+
+
+
+  <script>
+    var deadline = new Date("Jan 1, 2021 15:37:25").getTime();
+    var x = setInterval(function () {
+      var now = new Date().getTime();
+      var t = deadline - now;
+      var days = Math.floor(t / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((t % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((t % (1000 * 60)) / 1000);
+      // document.getElementById("demo").innerHTML = days + "d " +
+      //   hours + "h " + minutes + "m " + seconds + "s ";
+      document.getElementById("day").innerHTML = days;
+      document.getElementById("hour").innerHTML = hours;
+      document.getElementById("min").innerHTML = minutes;
+      document.getElementById("sec").innerHTML = seconds;
+
+
+      if (t < 0) {
+        clearInterval(x);
+        document.getElementById("day").innerHTML = days;
+      }
+    }, 1000);
+  </script>
+  </body>
+
+</html>
